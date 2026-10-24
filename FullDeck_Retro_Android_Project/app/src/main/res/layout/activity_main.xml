@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:fillViewport="true" android:fitsSystemWindows="true"
+    android:background="@color/background">
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:orientation="vertical" android:paddingStart="18dp" android:paddingEnd="18dp"
+        android:paddingTop="22dp" android:paddingBottom="40dp">
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:gravity="center_vertical" android:orientation="horizontal">
+            <TextView android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content"
+                android:text="▰  FULL DECK" android:fontFamily="serif" android:textStyle="bold"
+                android:textColor="@color/amber" android:letterSpacing="0.08" android:textSize="26sp" />
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="STEREO  •  OFFLINE" android:letterSpacing="0.03" android:textSize="10sp"
+                android:textColor="@color/muted"/>
+        </LinearLayout>
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="4dp"
+            android:text="EVERY SONG GETS A TURN" android:letterSpacing="0.14" android:textSize="11sp" android:textColor="@color/muted"/>
+        <TextView android:id="@+id/counter" android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:text="READY TO SHUFFLE" android:layout_marginTop="19dp" android:textSize="12sp"
+            android:textColor="@color/amber" android:letterSpacing="0.07"/>
+        <com.fulldeck.player.TurntableView android:id="@+id/turntable" android:layout_width="match_parent"
+            android:layout_height="270dp" android:layout_marginTop="11dp"
+            android:contentDescription="Animated turntable; record spins and stylus tracks song progress"/>
+        <TextView android:id="@+id/title" android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:layout_marginTop="17dp" android:gravity="center" android:textColor="@color/text" android:maxLines="2"
+            android:ellipsize="end" android:fontFamily="serif" android:textSize="27sp" android:textStyle="bold"
+            android:text="Your music. All of it."/>
+        <TextView android:id="@+id/artist" android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:layout_marginTop="5dp" android:gravity="center" android:maxLines="2" android:ellipsize="end"
+            android:text="Local MP3 player" android:textColor="@color/muted" android:textSize="13sp"/>
+        <SeekBar android:id="@+id/seek" android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:layout_marginTop="12dp" android:progressTint="@color/amber" android:thumbTint="@color/amber"/>
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+            <TextView android:id="@+id/elapsed" android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content"
+                android:text="0:00" android:textSize="12sp" android:textColor="@color/muted"/>
+            <TextView android:id="@+id/duration" android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="0:00" android:textSize="12sp" android:textColor="@color/muted"/>
+        </LinearLayout>
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:gravity="center" android:layout_marginTop="10dp" android:orientation="horizontal">
+            <Button android:id="@+id/previous" android:layout_width="64dp" android:layout_height="60dp"
+                android:background="@drawable/round_secondary" android:text="|◀" android:textSize="22sp"
+                android:textColor="@color/text" android:contentDescription="Previous song"/>
+            <Button android:id="@+id/play" android:layout_width="86dp" android:layout_height="76dp"
+                android:layout_marginStart="19dp" android:layout_marginEnd="19dp"
+                android:background="@drawable/round_button" android:text="▶" android:textSize="28sp"
+                android:textColor="@color/background" android:contentDescription="Play or pause"/>
+            <Button android:id="@+id/next" android:layout_width="64dp" android:layout_height="60dp"
+                android:background="@drawable/round_secondary" android:text="▶|" android:textSize="22sp"
+                android:textColor="@color/text" android:contentDescription="Next song"/>
+        </LinearLayout>
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:layout_marginTop="16dp" android:orientation="horizontal">
+            <Button android:id="@+id/random" android:layout_width="0dp" android:layout_weight="1" android:layout_height="52dp"
+                android:layout_marginEnd="6dp" android:background="@drawable/round_secondary"
+                android:text="⚄  RANDOM NEXT" android:textSize="13sp" android:textAllCaps="false"
+                android:textColor="@color/amber" android:contentDescription="Choose random unplayed song"/>
+            <Button android:id="@+id/delete" android:layout_width="0dp" android:layout_weight="1" android:layout_height="52dp"
+                android:layout_marginStart="6dp" android:background="@drawable/round_secondary"
+                android:text="REMOVE / DELETE" android:textSize="12sp" android:textAllCaps="false"
+                android:textColor="@color/text" android:contentDescription="Remove from shuffle or permanently delete file"/>
+        </LinearLayout>
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical"
+            android:padding="18dp" android:layout_marginTop="24dp" android:background="@drawable/round_panel">
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="THE SHUFFLE DECK"
+                android:textSize="12sp" android:letterSpacing="0.16" android:textColor="@color/amber"/>
+            <TextView android:id="@+id/progress" android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:layout_marginTop="8dp" android:text="No repeats. No forgotten songs." android:textSize="20sp"
+                android:fontFamily="serif" android:textColor="@color/text" android:textStyle="bold"/>
+            <TextView android:id="@+id/summary" android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:layout_marginTop="6dp" android:text="Progress saved after closing the app." android:textSize="12sp" android:textColor="@color/muted"/>
+            <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="19dp"
+                android:text="UP NEXT" android:textSize="12sp" android:letterSpacing="0.12" android:textColor="@color/amber"/>
+            <LinearLayout android:id="@+id/upcoming" android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:orientation="vertical" android:layout_marginTop="5dp"/>
+        </LinearLayout>
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:layout_marginTop="16dp" android:orientation="horizontal">
+            <Button android:id="@+id/reshuffle" android:layout_width="0dp" android:layout_weight="1" android:layout_height="51dp"
+                android:layout_marginEnd="6dp" android:background="@drawable/round_secondary" android:text="NEW DECK"
+                android:textSize="13sp" android:textColor="@color/amber"/>
+            <Button android:id="@+id/scan" android:layout_width="0dp" android:layout_weight="1" android:layout_height="51dp"
+                android:layout_marginStart="6dp" android:background="@drawable/round_secondary" android:text="SCAN MUSIC"
+                android:textSize="13sp" android:textColor="@color/text"/>
+        </LinearLayout>
+        <TextView android:id="@+id/status" android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:layout_marginTop="17dp" android:text="Local MP3s only — no streaming or login" android:textSize="11sp"
+            android:gravity="center" android:textColor="@color/muted"/>
+    </LinearLayout>
+</ScrollView>
